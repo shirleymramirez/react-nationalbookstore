@@ -14,7 +14,7 @@ function CartItem ({ cartItems, removeFromCart }) {
                 <td>{item.inCart}</td>
                 <td>
                     <button 
-                        style={{color: 'red', width: '5em'}} 
+                        style={{color: 'red', width: '4em'}} 
                         onClick={() => removeFromCart(item.id) }>Delete</button>
                 </td>
             </tbody>

@@ -14,8 +14,11 @@ const AdminBookList = ({ books, onDelete, onEdit }) => {
         )
     })
     return (
-        <div className="booksShelf">
-            { booksList }
+        <div>
+            <h1 style={{padding: '20px'}}>BookList</h1>
+            <div className="booksShelf">
+                { booksList }
+            </div>
         </div>
     )
 }

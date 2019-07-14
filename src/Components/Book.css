@@ -35,13 +35,14 @@
     padding-top: 10px;
 }
 
-
 .navbar, .footer {
     background-color: rgb(3, 94, 68);
 }
 
+
 .logo,
-.footer {
+.footer,
+.routerLink {
     background:
         -webkit-repeating-linear-gradient(-45deg,
         rgb(53, 231, 127),
@@ -94,9 +95,8 @@ button {
     border-radius: 5px;
     background: rgb(247, 247, 247);
     text-align: left;
-    width: 30rem;
     padding: 1em;
-    margin: 1em;
+    margin: 1.8em;
     height: 55em;
 }
 

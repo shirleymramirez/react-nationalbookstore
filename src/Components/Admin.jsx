@@ -33,13 +33,12 @@ class Admin extends React.Component {
         const newBookWithId = await res.json()
         this.setState(prevState => {
             return {
-                posts: [...prevState.books, newBookWithId]
+                books: [...prevState.books, newBookWithId]
             }
         })
     }
 
     deleteBook = async id => {
-        // TODO - together
         const url = `http://localhost:8082/api/books/${id}`
         const res = await fetch(url, {
             method: "DELETE"
@@ -68,21 +67,20 @@ class Admin extends React.Component {
     }
 
     handleBookChange = e => {
-        // TODO - y'all
         e.preventDefault();
         const newBody = e.target.value;
         const myName = e.target.name;
 
         this.setState(prevState => {
             return {
-                posts: prevState.posts.map(post => {
-                    if (post.editing) {
+                books: prevState.books.map(book => {
+                    if (book.editing) {
                         return {
-                            ...post,
+                            ...book,
                             [myName]: newBody
                         }
                     } else {
-                        return { ...post }
+                        return { ...book }
                     }
                 })
             }
@@ -90,7 +88,6 @@ class Admin extends React.Component {
     }
 
     patchEditBook = async (id, changedData) => {
-        // TODO - y'all
         await fetch(`http://localhost:8082/api/books/cart/add/${id}`, {
             method: "PATCH",
             body: JSON.stringify(changedData),
@@ -112,7 +109,6 @@ class Admin extends React.Component {
     }
 
     patchEditBook = async (id, changedData) => {
-        // TODO - y'all
         await fetch(`http://localhost:8082/api/books/cart/remove/${id}`, {
             method: "PATCH",
             body: JSON.stringify(changedData),
@@ -141,6 +137,7 @@ class Admin extends React.Component {
             this.patchEditBook(bookBeingEdited.id, bookBeingEdited)
         }
         return (
+
             <div className="booklist-and-shopping-cart">
                 <AdminBookList
                     books={this.state.books}

@@ -64,6 +64,7 @@ class Client extends React.Component {
         })
     }
 
+    
 
     render() {
         const  cartItems = this.state.books.filter(item => {
@@ -71,17 +72,18 @@ class Client extends React.Component {
         });
 
         return(
-            <div className="booklist-and-shopping-cart">
-                <BookList
-                    books={this.getBooks()}
-                    addToCart={this.addItemToCart}
-                    onSearchSubmit={this.onSearchSubmit}
-                    search={this.state.search} />
-                <CartItem 
-                    cartItems={cartItems} 
-                    removeFromCart={this.removeFromCart}
-                />
-            </div>
+
+                <div className="booklist-and-shopping-cart">
+                    <BookList
+                        books={this.getBooks()}
+                        addToCart={this.addItemToCart}
+                        onSearchSubmit={this.onSearchSubmit}
+                        search={this.state.search} />
+                    <CartItem 
+                        cartItems={cartItems} 
+                        removeFromCart={this.removeFromCart}
+                    />
+                </div>
         )
     }
 }
