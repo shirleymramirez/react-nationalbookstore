@@ -1,0 +1,116 @@
+.container {
+    display: flex;
+    flex-direction: row;    
+}
+
+.booklist-and-shopping-cart {
+    display: flex;
+    text-align: center;
+}
+
+.booksShelf {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 65vw;
+}
+
+.bookContainer {
+    box-shadow:
+        0pt 2px 5px rgba(84, 85, 83, 0.7),
+        0px 0px 8px 5px rgba(124, 148, 124, 0.4) inset;
+    border-radius: 5px;
+    background: rgb(247, 247, 247);
+    text-align: left;
+    width: 25rem;
+    padding: 1em;
+    margin: 1em;
+}
+
+.addToCartButton,
+.saveBookButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+
+.navbar, .footer {
+    background-color: rgb(3, 94, 68);
+}
+
+.logo,
+.footer {
+    background:
+        -webkit-repeating-linear-gradient(-45deg,
+        rgb(53, 231, 127),
+        rgb(6, 184, 125) 20px,
+        rgb(225, 240, 231) 20px,
+        rgb(82, 243, 67) 40px,
+        rgb(237, 240, 235) 40px);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.searchField {
+    border-radius: 5px;
+    width: 25em;
+    margin-top: 10px;
+}
+
+button {
+    width: 8em;
+    box-shadow:
+        0pt 2px 5px rgba(2, 78, 21, 0.7),
+        0px 0px 8px 5px rgba(20, 41, 24, 0.4) inset;
+    border-radius: 5px;
+    background: rgb(247, 247, 247);
+}
+
+.adminbookList {
+    box-shadow:
+        0pt 2px 5px rgba(84, 85, 83, 0.7),
+        0px 0px 8px 5px rgba(124, 148, 124, 0.4) inset;
+    border-radius: 5px;
+    background: rgb(247, 247, 247);
+    text-align: left;
+    width: 25rem;
+    padding: 1em;
+    margin: 1em;
+}
+
+.editDeleteAdminButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+
+.addBookForm {
+    box-shadow:
+        0pt 2px 5px rgba(84, 85, 83, 0.7),
+        0px 0px 8px 5px rgba(124, 148, 124, 0.4) inset;
+    border-radius: 5px;
+    background: rgb(247, 247, 247);
+    text-align: left;
+    width: 30rem;
+    padding: 1em;
+    margin: 1em;
+}
+
+.newBookDetails {
+    width: 400px;
+    clear: both;
+}
+
+.newBookDetails input{
+    border-radius: 5px;
+    width: 100%;
+    clear: both;
+}
+
+.newBookDetails label{
+    padding-top: 10px;
+}
+
