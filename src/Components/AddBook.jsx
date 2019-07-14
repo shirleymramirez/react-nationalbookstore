@@ -26,7 +26,7 @@ class AddBook extends React.Component {
     render() {
         return (
             <div>
-                <h1 style={{textAlign: "center", padding: "18px"}}>Add New Book</h1>
+                <h1 className="editAddHeader">Add New Book</h1>
                 <form onSubmit={this.handleSubmit} className="addBookForm">
                     <div className="newBookDetails">
                         <label>Title </label> 

@@ -16,7 +16,14 @@ function PostBook({ id, title, author, description, price, pages, onDelete, onEd
                         <button style={{color: "red" }}onClick={() => onDelete(id)}>Delete</button>
                     </div>
                     <div>
-                        <button onClick={() => onEdit(id)}>Edit</button>
+                        <button 
+                            onClick={() => onEdit(id)} 
+                            type="button" 
+                            data-toggle="modal" 
+                            data-target="editBook"
+                            data-whatever="editBook">
+                                Edit
+                        </button>
                     </div>
                 </div>
             </div>
