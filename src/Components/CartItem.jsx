@@ -1,8 +1,6 @@
 import React from 'react';
 
 function CartItem ({ cartItems, removeFromCart }) {
-    
-
     let totalPrice = 0;
     const cartItem = cartItems.map(item => {
         totalPrice += item.price * item.inCart;

@@ -11,7 +11,7 @@ class AddBook extends React.Component {
         description: "",
         website:"",
         inCart: false,
-        price: "",
+        price: null,
 
     }
     handleChange = e => {
