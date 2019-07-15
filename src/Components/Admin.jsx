@@ -9,7 +9,7 @@ class Admin extends React.Component {
     }
 
     async componentDidMount() {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/books`);
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/books`);
         const json = await response.json();
         this.setState({
             books: json.map((book, index) => {
@@ -23,7 +23,7 @@ class Admin extends React.Component {
     }
 
     addBook = async newBook => {
-        const res = await fetch(`${process.env.REACT_APP_API_URL}/api/books`, {
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/books`, {
             method: "POST",
             body: JSON.stringify(newBook),
             headers: {
@@ -39,7 +39,7 @@ class Admin extends React.Component {
     }
 
     deleteBook = async id => {
-        const url = `${process.env.REACT_APP_API_URL}/api/books/${id}`
+        const url = `${process.env.REACT_APP_API_URL}/books/${id}`
         const res = await fetch(url, {
             method: "DELETE"
         })
@@ -88,7 +88,7 @@ class Admin extends React.Component {
     }
 
     patchEditBook = async (id, changedData) => {
-        await fetch(`${process.env.REACT_APP_API_URL}/api/books/cart/add/${id}`, {
+        await fetch(`${process.env.REACT_APP_API_URL}/books/cart/add/${id}`, {
             method: "PATCH",
             body: JSON.stringify(changedData),
             headers: {
@@ -109,7 +109,7 @@ class Admin extends React.Component {
     }
 
     patchEditBook = async (id, changedData) => {
-        await fetch(`${process.env.REACT_APP_API_URL}/api/books/cart/remove/${id}`, {
+        await fetch(`${process.env.REACT_APP_API_URL}/books/cart/remove/${id}`, {
             method: "PATCH",
             body: JSON.stringify(changedData),
             headers: {
