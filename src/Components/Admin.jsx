@@ -9,7 +9,7 @@ class Admin extends React.Component {
     }
 
     async componentDidMount() {
-        const response = await fetch('http://localhost:8082/api/books');
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/books`);
         const json = await response.json();
         this.setState({
             books: json.map((book, index) => {
@@ -23,7 +23,7 @@ class Admin extends React.Component {
     }
 
     addBook = async newBook => {
-        const res = await fetch('http://localhost:8082/api/books', {
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/api/books`, {
             method: "POST",
             body: JSON.stringify(newBook),
             headers: {
@@ -39,7 +39,7 @@ class Admin extends React.Component {
     }
 
     deleteBook = async id => {
-        const url = `http://localhost:8082/api/books/${id}`
+        const url = `${process.env.REACT_APP_API_URL}/api/books/${id}`
         const res = await fetch(url, {
             method: "DELETE"
         })
@@ -51,7 +51,7 @@ class Admin extends React.Component {
             })
         }
     }
-    
+
 
     onEditBook = id => {
         this.setState(prevState => {
@@ -88,7 +88,7 @@ class Admin extends React.Component {
     }
 
     patchEditBook = async (id, changedData) => {
-        await fetch(`http://localhost:8082/api/books/cart/add/${id}`, {
+        await fetch(`${process.env.REACT_APP_API_URL}/api/books/cart/add/${id}`, {
             method: "PATCH",
             body: JSON.stringify(changedData),
             headers: {
@@ -109,7 +109,7 @@ class Admin extends React.Component {
     }
 
     patchEditBook = async (id, changedData) => {
-        await fetch(`http://localhost:8082/api/books/cart/remove/${id}`, {
+        await fetch(`${process.env.REACT_APP_API_URL}/api/books/cart/remove/${id}`, {
             method: "PATCH",
             body: JSON.stringify(changedData),
             headers: {
@@ -149,7 +149,7 @@ class Admin extends React.Component {
                             <h1 className="editAddHeader">Edit Book</h1>
                             <div className="editBookDetails">
                                 <label>Title</label>
-                                <input 
+                                <input
                                     type="text"
                                     value={bookBeingEdited.title}
                                     onChange={this.handleBookChange}
@@ -167,14 +167,14 @@ class Admin extends React.Component {
                                     type="text"
                                     value={bookBeingEdited.author}
                                     onChange={this.handleBookChange}
-                                    name="author" 
+                                    name="author"
                                 />
                                 <label>Published</label>
                                 <input
                                     type="text"
                                     value={bookBeingEdited.published}
                                     onChange={this.handleBookChange}
-                                    name="published" 
+                                    name="published"
                                 />
                                 <label>Publisher</label>
                                 <input
@@ -188,35 +188,35 @@ class Admin extends React.Component {
                                     type="text"
                                     value={bookBeingEdited.pages}
                                     onChange={this.handleBookChange}
-                                    name="pages" 
+                                    name="pages"
                                 />
                                     <label>Decription</label>
                                 <input
                                     type="text"
                                     value={bookBeingEdited.description}
                                     onChange={this.handleBookChange}
-                                    name="description" 
+                                    name="description"
                                 />
                                 <label>Website</label>
                                 <input
                                     type="text"
                                     value={bookBeingEdited.website}
                                     onChange={this.handleBookChange}
-                                    name="website" 
+                                    name="website"
                                 />
                                 <label>InCart</label>
                                 <input
                                     type="text"
                                     value={bookBeingEdited.inCart}
                                     onChange={this.handleBookChange}
-                                    name="inCart" 
+                                    name="inCart"
                                 />
                                 <label>Price</label>
                                 <input
                                     type="text"
                                     value={bookBeingEdited.price}
                                     onChange={this.handleBookChange}
-                                    name="price" 
+                                    name="price"
                                 />
                             </div>
 

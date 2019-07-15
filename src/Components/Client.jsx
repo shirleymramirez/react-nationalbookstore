@@ -10,7 +10,7 @@ class Client extends React.Component {
     }
 
     async componentDidMount() {
-        const response = await fetch('http://localhost:8082/api/books');
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/books`);
         const json = await response.json();
         this.setState({
             books: json.map(book => {
