@@ -1,17 +1,16 @@
 import React from 'react';
 
-const SearchBooks = ({ search, onSearchSubmit }) => {
+const SearchBooks = ({ onSearchSubmit }) => {
 
     const onInputChange = (e) => {
-        return onSearchSubmit(e);
+        return onSearchSubmit(e.target.value);
     }
 
     return (
         <input className="searchField"  
             placeholder="Search..."
             type="text"
-            value={search}
-            onChange={(e)=> onInputChange(e)}
+            onChange={onInputChange}
         />
     )
 

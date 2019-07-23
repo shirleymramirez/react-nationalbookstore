@@ -10,7 +10,9 @@ class Client extends React.Component {
     }
 
     async componentDidMount() {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/books`);
+        // const response = await fetch(`${process.env.REACT_APP_API_URL}/books`);
+        const response = await fetch('http://localhost:8082/api/books');
+
         const json = await response.json();
         this.setState({
             books: json.map(book => {
@@ -22,22 +24,11 @@ class Client extends React.Component {
         });
     }
 
-    onSearchSubmit = (e) => {
-        const value = e.target.value
+    searchList = str => {
         this.setState({
-            search: value
+            ...this.state,
+            search: str
         })
-    }
-
-    getBooks = () => {
-        if (this.state.search) {
-            return this.state.books.filter(book =>
-                book.author.toLowerCase() === this.state.search.toLowerCase() ||
-                book.title.toLowerCase() === this.state.search.toLowerCase()
-            )
-        } else {
-            return this.state.books
-        }
     }
 
     addItemToCart = (id) => {
@@ -71,13 +62,23 @@ class Client extends React.Component {
             return item.inCart > 0
         });
 
+        let searchedItem;
+        const searchItem = str => {
+            searchedItem = this.state.books.filter(book => {
+                return book.title.toLowerCase().includes(str.toLowerCase()) || 
+                    book.author.toLowerCase().includes(str.toLowerCase());
+            });
+        }
+
+        searchItem(this.state.search);
+
         return(
             <div className="booklist-and-shopping-cart">
                 <BookList
-                    books={this.getBooks()}
+                    books={searchedItem}
+                    itemsSearch={this.searchList}
                     addToCart={this.addItemToCart}
-                    onSearchSubmit={this.onSearchSubmit}
-                    search={this.state.search} />
+                />
                 <CartItem 
                     cartItems={cartItems} 
                     removeFromCart={this.removeFromCart}

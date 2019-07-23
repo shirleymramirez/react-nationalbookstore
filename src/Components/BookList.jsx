@@ -3,14 +3,11 @@ import SearchBooks from './SearchBooks';
 import Book from './Book';
 import './Book.css';
 
-const BookList = ({ books, search, onSearchSubmit, addToCart }) => {
+const BookList = ({ books, itemsSearch, addToCart }) => {
     return (
         <div>
             <div>
-                <SearchBooks
-                    search={search}
-                    onSearchSubmit={onSearchSubmit}
-                />
+                <SearchBooks onSearchSubmit={itemsSearch} />
             </div>
             <div>
                 <h1>BookList</h1>

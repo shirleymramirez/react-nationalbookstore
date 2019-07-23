@@ -6,7 +6,7 @@ function CartItem ({ cartItems, removeFromCart }) {
         totalPrice += item.price * item.inCart;
         return (
             <tbody>
-                <td>{item.title}</td>
+                <td key={item.id}>{item.title}</td>
                 <td>{item.author}</td>
                 <td>${item.price}</td>
                 <td>{item.inCart}</td>
